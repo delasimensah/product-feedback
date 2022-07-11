@@ -27,6 +27,11 @@ module.exports = {
       fontFamily: {
         jost: ["Jost"],
       },
+      backgroundImage: {
+        "header-sm": "url('/assets/suggestions/mobile/background-header.png')",
+        "header-md": "url('/assets/suggestions/tablet/background-header.png')",
+        "header-lg": "url('/assets/suggestions/desktop/background-header.png')",
+      },
     },
   },
   plugins: [],
