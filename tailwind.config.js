@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require("./theme/colors");
 
 module.exports = {
   content: [
@@ -8,7 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors,
+      colors: {
+        violet: "#AD1FEA",
+        deepBlue: "#4661E6",
+        lightBlue: "#62BCFA",
+        pink: "#F49F85",
+        ghostWhite: "#F2F4FF",
+        ghostWhite2: "#F7F8FD",
+        gore: "#3A4374",
+        bay: "#373F68",
+        grey: "#647196",
+      },
       letterSpacing: {
         h1: "-0.33px",
         h2: "-0.25px",
@@ -25,7 +34,7 @@ module.exports = {
         body3: "19px",
       },
       fontFamily: {
-        jost: ["Jost"],
+        jost: ["Jost", "sans-serif"],
       },
       backgroundImage: {
         "header-sm": "url('/assets/suggestions/mobile/background-header.png')",

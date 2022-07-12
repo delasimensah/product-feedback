@@ -1,10 +1,10 @@
-import React from "react";
+import { Box } from "@mantine/core";
 
 const Layout = ({ children }) => {
   return (
-    <div className="container h-screen mx-auto text-white bg-black">
+    <Box className="container h-screen mx-auto text-white bg-black">
       {children}
-    </div>
+    </Box>
   );
 };
 

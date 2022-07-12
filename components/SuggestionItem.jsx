@@ -1,7 +1,7 @@
-import React from "react";
+import { Box } from "@mantine/core";
 
 const SuggestionItem = () => {
-  return <div className="h-20 bg-white rounded-lg"></div>;
+  return <Box className="h-20 bg-white rounded-lg"></Box>;
 };
 
 export default SuggestionItem;

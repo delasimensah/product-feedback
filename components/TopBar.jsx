@@ -1,7 +1,7 @@
-import React from "react";
+import { Box } from "@mantine/core";
 
 const TopBar = () => {
-  return <div className="py-10 md:rounded-lg bg-bay">content</div>;
+  return <Box className="py-10 md:rounded-lg bg-bay">content</Box>;
 };
 
 export default TopBar;

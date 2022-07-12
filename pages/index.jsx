@@ -1,23 +1,25 @@
+import { Box } from "@mantine/core";
+
 // components
 import { TopBar, Navigation, SuggestionItem } from "../components";
 
 const Suggestions = () => {
   return (
-    <div className="container h-screen mx-auto overflow-hidden lg:flex lg:space-x-5 md:pt-5 lg:pt-10">
-      <div className="hidden lg:block w-60">
+    <Box className="container h-screen mx-auto overflow-hidden lg:flex lg:space-x-5 md:pt-5 lg:pt-10">
+      <Box className="hidden lg:block w-60">
         <Navigation />
-      </div>
+      </Box>
 
-      <div className="flex flex-col flex-1 h-full">
-        <div className="md:space-y-5 lg:space-y-0">
-          <div className="lg:hidden">
+      <Box className="flex flex-col flex-1 h-full">
+        <Box className="md:space-y-5 lg:space-y-0">
+          <Box className="lg:hidden">
             <Navigation />
-          </div>
+          </Box>
 
           <TopBar />
-        </div>
+        </Box>
 
-        <div className="flex-1 py-5 space-y-5 overflow-auto overscroll-contain">
+        <Box className="flex-1 py-5 space-y-5 overflow-auto overscroll-contain">
           <SuggestionItem />
           <SuggestionItem />
           <SuggestionItem />
@@ -30,9 +32,9 @@ const Suggestions = () => {
           <SuggestionItem />
           <SuggestionItem />
           <SuggestionItem />
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
