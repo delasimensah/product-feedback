@@ -5,7 +5,7 @@ import { TopBar, Navigation, SuggestionItem } from "../components";
 
 const Suggestions = () => {
   return (
-    <Box className="container h-screen mx-auto overflow-hidden lg:flex lg:space-x-5 md:pt-5 lg:pt-10">
+    <Box className="container h-screen mx-auto overflow-hidden lg:flex lg:space-x-5 md:pt-5 lg:pt-10 md:px-5 xl:px-10">
       <Box className="hidden lg:block w-60">
         <Navigation />
       </Box>
@@ -19,7 +19,7 @@ const Suggestions = () => {
           <TopBar />
         </Box>
 
-        <Box className="flex-1 py-5 space-y-5 overflow-auto overscroll-contain">
+        <Box className="flex-1 px-3 py-5 space-y-5 overflow-auto overscroll-contain md:px-0">
           <SuggestionItem />
           <SuggestionItem />
           <SuggestionItem />
