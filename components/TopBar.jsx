@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { Box, Text, Button } from "@mantine/core";
-import { useViewportSize } from "@mantine/hooks";
 
 import { Icon, CustomSelect } from ".";
 
 const TopBar = () => {
-  const { width } = useViewportSize();
+  const [sortBy, setSortBy] = useState("Most Upvotes");
 
   return (
     <Box className="flex items-center justify-between p-3 md:rounded-lg bg-bay">
@@ -20,7 +20,7 @@ const TopBar = () => {
             Sort By :{" "}
           </Text>
 
-          <CustomSelect />
+          <CustomSelect value={sortBy} setValue={setSortBy} />
         </Box>
       </Box>
 
@@ -31,9 +31,9 @@ const TopBar = () => {
           }
           variant="filled"
           classNames={{
-            filled: "bg-violet",
+            filled: "bg-violet hover:bg-violet/80",
+            root: "w-36 text-xs lg:w-40 lg:text-sm",
           }}
-          size={width < 500 ? "xs" : "sm"}
         >
           Add Feedback
         </Button>
