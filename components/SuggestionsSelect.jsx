@@ -18,15 +18,9 @@ const SelectItem = (sortBy) => {
       <Box
         ref={ref}
         {...others}
-        className="flex items-center justify-between p-2 border-t cursor-pointer first:border-t-0 border-t-ghostWhite"
+        className="flex items-center justify-between p-3 border-b cursor-pointer border-ghostWhite last:border-b-0"
       >
-        <Text
-          className={` hover:text-violet font-jost ${
-            sortBy === value ? "text-violet" : "text-bay"
-          }`}
-        >
-          {label}
-        </Text>
+        <Text className="body1 text-[#647196] hover:text-primary">{label}</Text>
 
         {sortBy === value && (
           <Icon src="/assets/shared/icon-check.svg" width={10} height={10} />
@@ -36,7 +30,7 @@ const SelectItem = (sortBy) => {
   });
 };
 
-const CustomSelect = ({ value, setValue }) => {
+const SuggestionsSelect = ({ value, setValue }) => {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -52,11 +46,10 @@ const CustomSelect = ({ value, setValue }) => {
       variant="unstyled"
       classNames={{
         root: "w-32 md:w-40",
-        dropdown: "top-3 ",
+        dropdown: "top-3 p-0 rounded-lg",
         unstyledVariant:
-          "text-ghostWhite2 font-bold font-jost w-60 text-xs md:text-base",
+          "text-ghostWhite2 group-hover:text-[#B5BCE0] font-bold w-60 text-xs md:text-base",
         rightSection: "pointer-events-none",
-        selected: "text-violet",
       }}
       onDropdownOpen={() => setOpened(true)}
       onDropdownClose={() => setOpened(false)}
@@ -64,4 +57,4 @@ const CustomSelect = ({ value, setValue }) => {
   );
 };
 
-export default CustomSelect;
+export default SuggestionsSelect;

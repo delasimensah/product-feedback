@@ -21,17 +21,6 @@ const Suggestions = () => {
 
         <Box className="flex-1 px-3 py-5 space-y-5 overflow-auto overscroll-contain md:px-0">
           <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
-          <SuggestionItem />
         </Box>
       </Box>
     </Box>
