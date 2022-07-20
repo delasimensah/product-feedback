@@ -3,9 +3,8 @@ import { Box, Text, Button } from "@mantine/core";
 
 import { Icon, SuggestionsSelect } from ".";
 
-const TopBar = () => {
+const TopBar = ({ suggestions }) => {
   const [sortBy, setSortBy] = useState("Most Upvotes");
-  const suggestions = [1, 2, 3];
 
   return (
     <Box className="flex items-center justify-between p-3 md:rounded-lg bg-bay">
@@ -14,7 +13,7 @@ const TopBar = () => {
           <Icon src="/assets/suggestions/icon-suggestions.svg" />
 
           <Text className="font-bold text-white">
-            {suggestions.length} Suggestions
+            {suggestions} Suggestions
           </Text>
         </Box>
 

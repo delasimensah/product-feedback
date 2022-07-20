@@ -4,3 +4,4 @@ export { default as Navigation } from "./Navigation";
 export { default as SuggestionItem } from "./SuggestionItem";
 export { default as Icon } from "./Icon";
 export { default as SuggestionsSelect } from "./SuggestionsSelect";
+export { default as NoSuggestions } from "./NoSuggestions";
