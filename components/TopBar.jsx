@@ -10,7 +10,10 @@ const TopBar = ({ suggestions }) => {
     <Box className="flex items-center justify-between p-3 md:rounded-lg bg-bay">
       <Box className="flex items-center md:space-x-5">
         <Box className="items-center hidden space-x-2 md:flex">
-          <Icon src="/assets/suggestions/icon-suggestions.svg" />
+          <Icon
+            src="/assets/suggestions/icon-suggestions.svg"
+            className="w-5 h-5"
+          />
 
           <Text className="font-bold text-white">
             {suggestions} Suggestions
@@ -28,7 +31,7 @@ const TopBar = ({ suggestions }) => {
 
       <Button
         leftIcon={
-          <Icon src="/assets/shared/icon-plus.svg" width={10} height={10} />
+          <Icon src="/assets/shared/icon-plus.svg" className="w-3 h-3" />
         }
         variant="filled"
         classNames={{

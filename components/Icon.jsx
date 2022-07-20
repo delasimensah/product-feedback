@@ -1,13 +1,11 @@
+import { Box } from "@mantine/core";
 import Image from "next/image";
 
-const Icon = ({ src, width, height }) => {
+const Icon = ({ src, className }) => {
   return (
-    <Image
-      src={src}
-      alt=""
-      width={width ? width : 20}
-      height={height ? height : 20}
-    />
+    <Box className={`relative ${className}`}>
+      <Image src={src} alt="" layout="fill" objectFit="contain" />
+    </Box>
   );
 };
 
