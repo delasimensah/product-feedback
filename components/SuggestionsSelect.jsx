@@ -23,7 +23,7 @@ const SelectItem = (sortBy) => {
         <Text className="body1 text-[#647196] hover:text-primary">{label}</Text>
 
         {sortBy === value && (
-          <Icon src="/assets/shared/icon-check.svg" width={10} height={10} />
+          <Icon src="/assets/shared/icon-check.svg" className="w-3 h-3" />
         )}
       </Box>
     );
