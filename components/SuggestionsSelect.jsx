@@ -20,7 +20,9 @@ const SelectItem = (sortBy) => {
         {...others}
         className="flex items-center justify-between p-3 border-b cursor-pointer border-ghostWhite last:border-b-0"
       >
-        <Text className="body1 text-[#647196] hover:text-primary">{label}</Text>
+        <Text className="body2 md:body1 text-[#647196] hover:text-primary">
+          {label}
+        </Text>
 
         {sortBy === value && (
           <Icon src="/assets/shared/icon-check.svg" className="w-3 h-3" />
