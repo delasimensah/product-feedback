@@ -1,9 +1,18 @@
+import { useState, useEffect } from "react";
 import { MantineProvider } from "@mantine/core";
 import Head from "next/head";
 import theme from "../utils/theme";
 import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }) => {
+  const [isSSR, setIsSSR] = useState(true);
+
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
+  if (isSSR) return null;
+
   return (
     <>
       <Head>

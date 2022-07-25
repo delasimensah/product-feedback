@@ -1,13 +1,24 @@
 import { Box, Title, Text, Button } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import Image from "next/image";
 
-import { Icon } from ".";
+import { Icon, PrimaryButton } from ".";
 
 const NoSuggestions = () => {
+  const matches = useMediaQuery("(min-width: 900px)");
+
   return (
     <Box className="flex flex-col items-center justify-center h-full space-y-10 bg-white rounded-xl">
-      <Icon
+      {/* <Icon
         src="/assets/suggestions/illustration-empty.svg"
         className="w-24 h-24 md:w-36 md:h-36"
+      /> */}
+
+      <Image
+        src="/assets/suggestions/illustration-empty.svg"
+        alt=""
+        width={matches ? 150 : 100}
+        height={matches ? 150 : 100}
       />
 
       <Box className="flex flex-col items-center justify-center space-y-5 md:w-[58%] lg:w-[35%]">
@@ -21,18 +32,10 @@ const NoSuggestions = () => {
         </Text>
       </Box>
 
-      <Button
-        leftIcon={
-          <Icon src="/assets/shared/icon-plus.svg" className="w-3 h-3" />
-        }
-        variant="filled"
-        classNames={{
-          root: "w-36 text-xs lg:w-40 lg:text-sm",
-          filled: "bg-primary hover:bg-[#AF48DC]",
-        }}
-      >
-        Add Feedback
-      </Button>
+      <PrimaryButton
+        icon={<Icon src="/assets/shared/icon-plus.svg" className="w-3 h-3" />}
+        text="add feedback"
+      />
     </Box>
   );
 };

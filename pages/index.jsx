@@ -1,12 +1,7 @@
 import { Box } from "@mantine/core";
 
 // components
-import {
-  TopBar,
-  Navigation,
-  SuggestionItem,
-  NoSuggestions,
-} from "../components";
+import { TopBar, Navigation, NoFeedback, FeedbackItem } from "../components";
 
 const Suggestions = () => {
   const suggestions = [];
@@ -30,11 +25,11 @@ const Suggestions = () => {
           {suggestions.length ? (
             <>
               {suggestions.map((suggestion, idx) => {
-                return <SuggestionItem key={idx} suggestion={suggestion} />;
+                return <FeedbackItem key={idx} suggestion={suggestion} />;
               })}
             </>
           ) : (
-            <NoSuggestions />
+            <NoFeedback />
           )}
         </Box>
       </Box>

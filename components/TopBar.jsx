@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Box, Text, Button } from "@mantine/core";
+import { Box, Text } from "@mantine/core";
 
-import { Icon, SuggestionsSelect } from ".";
+import { Icon, FeedbackSort, PrimaryButton } from ".";
 
 const TopBar = ({ suggestions }) => {
   const [sortBy, setSortBy] = useState("Most Upvotes");
@@ -25,22 +25,14 @@ const TopBar = ({ suggestions }) => {
             Sort By :{" "}
           </Text>
 
-          <SuggestionsSelect value={sortBy} setValue={setSortBy} />
+          <FeedbackSort value={sortBy} setValue={setSortBy} />
         </Box>
       </Box>
 
-      <Button
-        leftIcon={
-          <Icon src="/assets/shared/icon-plus.svg" className="w-3 h-3" />
-        }
-        variant="filled"
-        classNames={{
-          root: "w-36 text-xs lg:w-40 lg:text-sm",
-          filled: "bg-primary hover:bg-[#AF48DC]",
-        }}
-      >
-        Add Feedback
-      </Button>
+      <PrimaryButton
+        icon={<Icon src="/assets/shared/icon-plus.svg" className="w-3 h-3" />}
+        text="add feedback"
+      />
     </Box>
   );
 };
