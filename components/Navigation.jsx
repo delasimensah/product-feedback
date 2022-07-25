@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Box, Title, Text, Drawer, Badge } from "@mantine/core";
 
@@ -13,6 +13,18 @@ const Card = ({ className, children }) => (
 
 const RoadMap = () => {
   const feedback = useSelector((state) => state.feedback.feedback);
+
+  const planned = useMemo(() => {
+    return feedback.filter((feed) => feed.status === "planned");
+  }, [feedback]);
+
+  const inProgress = useMemo(() => {
+    return feedback.filter((feed) => feed.status === "in-progress");
+  }, [feedback]);
+
+  const live = useMemo(() => {
+    return feedback.filter((feed) => feed.status === "live");
+  }, [feedback]);
 
   return (
     <Box className="space-y-3">
@@ -38,7 +50,7 @@ const RoadMap = () => {
             <Text className="body2 text-gore">Planned</Text>
           </span>
 
-          <Text className="body3 text-bay">0</Text>
+          <Text className="body3 text-bay">{planned.length}</Text>
         </Box>
 
         <Box className="flex items-center justify-between">
@@ -48,7 +60,7 @@ const RoadMap = () => {
             <Text className="body2 text-gore">In-Progress</Text>
           </span>
 
-          <Text className="body3 text-bay">0</Text>
+          <Text className="body3 text-bay">{inProgress.length}</Text>
         </Box>
 
         <Box className="flex items-center justify-between">
@@ -58,7 +70,7 @@ const RoadMap = () => {
             <Text className="body2 text-gore">Live</Text>
           </span>
 
-          <Text className="body3 text-bay">0</Text>
+          <Text className="body3 text-bay">{live.length}</Text>
         </Box>
       </Box>
     </Box>

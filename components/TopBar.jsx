@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { Box, Text } from "@mantine/core";
 
 import { Icon, FeedbackSort, PrimaryButton } from ".";
 
 const TopBar = ({ suggestions }) => {
-  const [sortBy, setSortBy] = useState("Most Upvotes");
-
   return (
     <Box className="flex items-center justify-between p-3 md:rounded-lg bg-bay">
       <Box className="flex items-center md:space-x-5">
@@ -25,7 +22,7 @@ const TopBar = ({ suggestions }) => {
             Sort By :{" "}
           </Text>
 
-          <FeedbackSort value={sortBy} setValue={setSortBy} />
+          <FeedbackSort />
         </Box>
       </Box>
 

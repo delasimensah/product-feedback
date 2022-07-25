@@ -2,8 +2,11 @@
 import { useState, forwardRef } from "react";
 import { Box, Select, Text } from "@mantine/core";
 import { ChevronDown, ChevronUp } from "tabler-icons-react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { Icon } from ".";
+
+import { setSortBy } from "../redux/feedbackSlice";
 
 const data = [
   { value: "Most Upvotes", label: "Most Upvotes" },
@@ -32,19 +35,22 @@ const SelectItem = (sortBy) => {
   });
 };
 
-const SuggestionsSelect = ({ value, setValue }) => {
+const SuggestionsSelect = () => {
+  const dispatch = useDispatch();
+  const sortBy = useSelector((state) => state.feedback.sortBy);
+
   const [opened, setOpened] = useState(false);
 
   return (
     <Select
-      defaultValue={value}
-      value={value}
-      onChange={setValue}
+      defaultValue={sortBy}
+      value={sortBy}
+      onChange={(value) => dispatch(setSortBy(value))}
       data={data}
       rightSection={
         opened ? <ChevronUp size={14} /> : <ChevronDown size={14} />
       }
-      itemComponent={SelectItem(value)}
+      itemComponent={SelectItem(sortBy)}
       variant="unstyled"
       classNames={{
         root: "w-32 md:w-40",
