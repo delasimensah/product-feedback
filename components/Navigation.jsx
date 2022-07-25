@@ -2,6 +2,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { Box, Title, Text, Drawer, Badge } from "@mantine/core";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setCategory } from "../redux/feedbackSlice";
+
 import { Icon } from ".";
 
 const Card = ({ className, children }) => (
@@ -9,17 +12,17 @@ const Card = ({ className, children }) => (
 );
 
 const RoadMap = () => {
-  const suggestions = false;
+  const feedback = useSelector((state) => state.feedback.feedback);
 
   return (
     <Box className="space-y-3">
       <Box className="flex items-center justify-between">
         <Title className="h3 text-bay">Roadmap</Title>
 
-        <Link href="">
+        <Link href="/">
           <a
             className={`${
-              suggestions ? "text-deepBlue" : "text-gray-300"
+              feedback.length > 0 ? "text-deepBlue" : "text-gray-300"
             } underline body3`}
           >
             View
@@ -63,7 +66,9 @@ const RoadMap = () => {
 };
 
 const Categories = () => {
-  const category = "All";
+  const dispatch = useDispatch();
+  const category = useSelector((state) => state.feedback.category);
+
   const categories = ["All", "UI", "UX", "Enhancement", "Bug", "Feature"];
 
   return (
@@ -77,7 +82,7 @@ const Categories = () => {
               ? "bg-deepBlue text-white"
               : "text-deepBlue bg-ghostWhite2"
           }`}
-          onClick={() => console.log(cat)}
+          onClick={() => dispatch(setCategory(cat))}
         >
           {cat}
         </Badge>

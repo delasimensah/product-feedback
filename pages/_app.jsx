@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { MantineProvider } from "@mantine/core";
 import Head from "next/head";
+import { Provider } from "react-redux";
+
+import { store } from "../redux/store";
 import theme from "../utils/theme";
 import "../styles/globals.css";
 
@@ -14,7 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
   if (isSSR) return null;
 
   return (
-    <>
+    <Provider store={store}>
       <Head>
         <title>Product Feedback</title>
         <meta
@@ -26,7 +29,7 @@ const MyApp = ({ Component, pageProps }) => {
       <MantineProvider theme={theme}>
         <Component {...pageProps} />
       </MantineProvider>
-    </>
+    </Provider>
   );
 };
 
