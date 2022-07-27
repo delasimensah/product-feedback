@@ -1,11 +1,13 @@
-import { Box, Title, Text, Button } from "@mantine/core";
+import { Box, Title, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { Icon, PrimaryButton } from ".";
 
 const NoSuggestions = () => {
   const matches = useMediaQuery("(min-width: 900px)");
+  const router = useRouter();
 
   return (
     <Box className="flex flex-col items-center justify-center h-full space-y-10 bg-white rounded-xl">
@@ -35,6 +37,7 @@ const NoSuggestions = () => {
       <PrimaryButton
         icon={<Icon src="/assets/shared/icon-plus.svg" className="w-3 h-3" />}
         text="add feedback"
+        onClick={() => router.push("/new-feedback")}
       />
     </Box>
   );

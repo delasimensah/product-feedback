@@ -1,8 +1,11 @@
 import { Box, Text } from "@mantine/core";
+import { useRouter } from "next/router";
 
 import { Icon, FeedbackSort, PrimaryButton } from ".";
 
 const TopBar = ({ suggestions }) => {
+  const router = useRouter();
+
   return (
     <Box className="flex items-center justify-between p-3 md:rounded-lg bg-bay">
       <Box className="flex items-center md:space-x-5">
@@ -29,6 +32,7 @@ const TopBar = ({ suggestions }) => {
       <PrimaryButton
         icon={<Icon src="/assets/shared/icon-plus.svg" className="w-3 h-3" />}
         text="add feedback"
+        onClick={() => router.push("/new-feedback")}
       />
     </Box>
   );

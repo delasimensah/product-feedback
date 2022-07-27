@@ -54,7 +54,7 @@ const Suggestions = () => {
           <TopBar suggestions={filteredFeedback.length} />
         </Box>
 
-        <Box className="flex-1 px-3 py-5 space-y-5 overflow-auto overscroll-contain md:px-0">
+        <Box className="flex-1 px-3 py-5 space-y-5 overflow-auto overscroll-contain md:px-0 content">
           {filteredFeedback.length ? (
             <>
               {filteredFeedback.map((suggestion, idx) => {

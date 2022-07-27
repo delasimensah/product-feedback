@@ -31,10 +31,12 @@ const RoadMap = () => {
       <Box className="flex items-center justify-between">
         <Title className="h3 text-bay">Roadmap</Title>
 
-        <Link href="/">
+        <Link href="/roadmap">
           <a
             className={`${
-              feedback.length > 0 ? "text-deepBlue" : "text-gray-300"
+              feedback.length > 0
+                ? "text-deepBlue hover:text-[#909DDB]"
+                : "text-gray-300"
             } underline body3`}
           >
             View
@@ -92,7 +94,7 @@ const Categories = () => {
           className={`mr-2 mb-2 rounded-lg capitalize body3 cursor-pointer  ${
             cat === category
               ? "bg-deepBlue text-white"
-              : "text-deepBlue bg-ghostWhite2"
+              : "text-deepBlue bg-ghostWhite2 hover:bg-[#B5BCE0]"
           }`}
           onClick={() => dispatch(setCategory(cat))}
         >
