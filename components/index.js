@@ -8,3 +8,5 @@ export { default as FeedbackItem } from "./FeedbackItem";
 
 export { default as Icon } from "./Icon";
 export { default as PrimaryButton } from "./PrimaryButton";
+
+export { default as SelectItem } from "./SelectItem";
