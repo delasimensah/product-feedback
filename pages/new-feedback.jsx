@@ -16,7 +16,7 @@ const categories = [
 const classNames = {
   label: "text-bay h3",
   description: "text-grey body2",
-  filledVariant: "bg-ghostWhite focus:border-deepBlue",
+  filledVariant: "bg-ghostWhite focus:border-deepBlue text-gore",
 };
 
 const NewFeedback = () => {
