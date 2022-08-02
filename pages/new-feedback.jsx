@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Box, Title, Button, TextInput, Textarea, Select } from "@mantine/core";
 import { useRouter } from "next/router";
 
-import { Icon, SelectItem } from "../components";
+import { Icon, SelectItem, PrimaryButton, BackButton } from "../components";
 
 const categories = [
   { value: "Feature", label: "Feature" },
@@ -14,9 +14,10 @@ const categories = [
 ];
 
 const classNames = {
-  label: "text-bay h3",
-  description: "text-grey body2",
-  filledVariant: "bg-ghostWhite focus:border-deepBlue text-gore",
+  label: "text-bay h4",
+  description: "text-grey body3 font-normal",
+  filledVariant:
+    "bg-ghostWhite focus:border-deepBlue focus:cursor-pointer text-gore",
 };
 
 const NewFeedback = () => {
@@ -25,28 +26,15 @@ const NewFeedback = () => {
   const [opened, setOpened] = useState(false);
 
   return (
-    <Box className="px-5 mx-auto md:max-w-xl xl:max-w-2xl md:px-0">
+    <Box className="px-5 mx-auto md:max-w-xl xl:max-w-2xl md:px-0 fon">
       <Box className="flex items-end my-10 md:my-12">
-        <Button
-          leftIcon={
-            <Icon
-              src="/assets/shared/icon-arrow-left.svg"
-              className="w-3 h-3"
-            />
-          }
-          size="sm"
-          variant="subtle"
-          className="px-0 hover:bg-transparent text-grey"
-          onClick={() => router.back()}
-        >
-          Go Back
-        </Button>
+        <BackButton />
       </Box>
 
       <Box className="relative bg-white rounded-lg">
         <Icon
           src="/assets/shared/icon-new-feedback.svg"
-          className="absolute w-10 h-10 -top-5 left-10"
+          className="absolute w-12 h-12 -top-5 left-10"
         />
 
         <Box className="px-5 pb-10 space-y-5 md:px-10">
@@ -101,6 +89,30 @@ const NewFeedback = () => {
               minRows={4}
             />
           </form>
+
+          <Box className="items-center justify-end space-y-2 md:space-x-2 md:flex md:space-y-0">
+            <PrimaryButton
+              text="Add Feedback"
+              className="w-full md:hidden"
+              onClick={() => {}}
+            />
+            <Button
+              variant="filled"
+              classNames={{
+                filled:
+                  "bg-gore hover:bg-grey text-white rounded-lg w-full md:w-max",
+              }}
+              onClick={() => router.back()}
+            >
+              Cancel
+            </Button>
+
+            <PrimaryButton
+              text="Add Feedback"
+              className="hidden md:block"
+              onClick={() => {}}
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
