@@ -26,7 +26,7 @@ const NewFeedback = () => {
   const [opened, setOpened] = useState(false);
 
   return (
-    <Box className="px-5 mx-auto md:max-w-xl xl:max-w-2xl md:px-0 fon">
+    <Box className="px-5 mx-auto md:max-w-xl xl:max-w-2xl md:px-0">
       <Box className="flex items-end my-10 md:my-12">
         <BackButton />
       </Box>
