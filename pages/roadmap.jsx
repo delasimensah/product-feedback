@@ -31,7 +31,7 @@ const CardWrapper = ({ data, color, title }) => (
           {title}
         </Text>
 
-        <Link href={`/feedback-details/${id}`}>
+        <Link href={`/feedback-details/${sugg.id}`}>
           <a className="h4 text-bay hover:text-deepBlue">{sugg.title}</a>
         </Link>
 
