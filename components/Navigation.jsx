@@ -14,16 +14,16 @@ const Card = ({ className, children }) => (
 const RoadMap = () => {
   const feedback = useSelector((state) => state.feedback.feedback);
 
-  const planned = useMemo(() => {
-    return feedback.filter((feed) => feed.status === "planned");
+  const plannedCount = useMemo(() => {
+    return feedback.filter((feed) => feed.status === "planned").length;
   }, [feedback]);
 
-  const inProgress = useMemo(() => {
-    return feedback.filter((feed) => feed.status === "in-progress");
+  const inProgressCount = useMemo(() => {
+    return feedback.filter((feed) => feed.status === "in-progress").length;
   }, [feedback]);
 
-  const live = useMemo(() => {
-    return feedback.filter((feed) => feed.status === "live");
+  const liveCount = useMemo(() => {
+    return feedback.filter((feed) => feed.status === "live").length;
   }, [feedback]);
 
   return (
@@ -52,7 +52,7 @@ const RoadMap = () => {
             <Text className="body2 text-gore">Planned</Text>
           </span>
 
-          <Text className="body3 text-bay">{planned.length}</Text>
+          <Text className="body3 text-bay">{plannedCount}</Text>
         </Box>
 
         <Box className="flex items-center justify-between">
@@ -62,7 +62,7 @@ const RoadMap = () => {
             <Text className="body2 text-gore">In-Progress</Text>
           </span>
 
-          <Text className="body3 text-bay">{inProgress.length}</Text>
+          <Text className="body3 text-bay">{inProgressCount}</Text>
         </Box>
 
         <Box className="flex items-center justify-between">
@@ -72,7 +72,7 @@ const RoadMap = () => {
             <Text className="body2 text-gore">Live</Text>
           </span>
 
-          <Text className="body3 text-bay">{live.length}</Text>
+          <Text className="body3 text-bay">{liveCount}</Text>
         </Box>
       </Box>
     </Box>

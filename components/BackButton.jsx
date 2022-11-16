@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { Icon } from "../components";
 
-const BackButton = () => {
+const BackButton = ({ light }) => {
   const router = useRouter();
 
   return (
@@ -14,7 +14,9 @@ const BackButton = () => {
       }
       size="sm"
       variant="subtle"
-      className="px-0 hover:bg-transparent text-grey hover:underline"
+      className={`px-0 hover:bg-transparent ${
+        light ? "text-white" : "text-grey"
+      } hover:underline`}
       onClick={() => router.back()}
     >
       Go Back
