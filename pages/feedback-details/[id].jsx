@@ -3,7 +3,7 @@ import { Box, Button } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 
-import { Text, Textarea } from "@mantine/core";
+import { Text, Textarea, Avatar } from "@mantine/core";
 
 import { BackButton, FeedbackItem, PrimaryButton } from "../../components";
 
@@ -43,11 +43,21 @@ const FeedbackDetail = () => {
 
         <FeedbackItem suggestion={selectedFeedback} />
 
-        <Box className="p-5 space-y-5 bg-white rounded-lg md:p-10">
+        <Box className="p-5 bg-white rounded-lg md:p-10">
           <Text className="h3 text-bay">
             {selectedFeedback.comments.length} Comment
             {selectedFeedback.comments.length > 1 ? "s" : ""}
           </Text>
+
+          <Box className="divide-y">
+            {selectedFeedback.comments.map((comment, idx) => {
+              return (
+                <Box key={idx}>
+                  <CommentCard comment={comment} className="py-5 md:py-10" />
+                </Box>
+              );
+            })}
+          </Box>
         </Box>
 
         <Box className="p-5 space-y-5 bg-white rounded-lg md:p-10">
@@ -72,6 +82,65 @@ const FeedbackDetail = () => {
             />
           </Box>
         </Box>
+      </Box>
+    </Box>
+  );
+};
+
+const CommentCard = ({ comment, className }) => {
+  return (
+    <Box className={`flex md:space-x-5 ${className}`}>
+      <Avatar
+        src={comment.user.image}
+        alt=""
+        radius="xl"
+        className="hidden md:block"
+      />
+
+      <Box className="flex-grow space-y-5">
+        <Box className="flex justify-between">
+          <Box className="flex ">
+            <Avatar
+              src={comment.user.image}
+              alt=""
+              radius="xl"
+              className="md:hidden"
+            />
+
+            <Box>
+              <Text className="h4 text-bay">{comment.user.name}</Text>
+              <Text className="font-normal body3 text-grey">
+                @{comment.user.username}
+              </Text>
+            </Box>
+          </Box>
+
+          <Button
+            variant="subtle"
+            className="text-deepBlue hover:bg-transparent hover:underline"
+          >
+            Reply
+          </Button>
+        </Box>
+
+        <Text className="font-normal text-grey body2">
+          {comment.replyingTo && (
+            <span className="font-bold text-primary">
+              @{comment.replyingTo}
+            </span>
+          )}{" "}
+          {comment.content}
+        </Text>
+
+        {comment.replies && (
+          <Box className="">
+            {comment.replies.map((reply, idx) => {
+              return (
+                <CommentCard key={idx} comment={reply} className="md:py-3" />
+              );
+            })}
+          </Box>
+        )}
       </Box>
     </Box>
   );
