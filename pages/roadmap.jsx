@@ -17,57 +17,85 @@ const Heading = ({ title, count, text }) => (
   </Box>
 );
 
-const CardWrapper = ({ data, color, title }) => (
-  <Box className="space-y-3">
-    {data.map((sugg, idx) => (
-      <Box
-        key={idx}
-        className={`p-5 bg-white border-t-[6px] rounded-md border-t-${color} space-y-2`}
-      >
-        <Text className="flex items-center font-normal capitalize text-grey body3">
-          <div
-            className={`h-[5px] w-[5px] bg-${color} rounded-full inline-block mr-2`}
-          />
-          {title}
-        </Text>
+const CardWrapper = ({ data, color, title }) => {
+  let borderColor = "";
+  let bg = "";
 
-        <Link href={`/feedback-details/${sugg.id}`}>
-          <a className="h4 text-bay hover:text-deepBlue">{sugg.title}</a>
-        </Link>
+  switch (color) {
+    case "pink":
+      borderColor = "border-t-pink";
+      bg = "bg-pink";
+      break;
+    case "primary":
+      borderColor = "border-t-primary";
+      bg = "bg-primary";
+      break;
+    case "lightBlue":
+      borderColor = "border-t-lightBlue";
+      bg = "bg-lightBlue";
+      break;
+  }
 
-        <Text className="font-normal text-grey body3">{sugg.description}</Text>
-
-        <Badge
-          size="lg"
-          className="p-4 mb-2 mr-2 font-semibold capitalize rounded-lg body2 text-deepBlue bg-ghostWhite2"
+  return (
+    <Box className="space-y-3">
+      {data.map((sugg, idx) => (
+        <Box
+          key={idx}
+          className={`p-5 bg-white border-t-[6px] rounded-md ${borderColor} space-y-2`}
         >
-          {sugg.category}
-        </Badge>
+          <Text className="flex items-center font-normal capitalize text-grey body3">
+            <div
+              className={`h-[5px] w-[5px] ${bg} rounded-full inline-block mr-2`}
+            />
+            {title}
+          </Text>
 
-        <Box className="flex items-center justify-between">
+          <Link href={`/`}>
+            <a className="h4 text-bay hover:text-deepBlue">{sugg.title}</a>
+          </Link>
+
+          <Text className="font-normal text-grey body3">
+            {sugg.description}
+          </Text>
+
           <Badge
-            // size="lg"
-            className="p-4 rounded-lg cursor-pointer bg-ghostWhite2 hover:bg-[#B5BCE0]"
-            component="button"
-            classNames={{
-              inner: "flex items-center space-x-2 ",
-            }}
-            onClick={() => console.log("upvote function")}
+            size="lg"
+            className="p-4 mb-2 mr-2 font-semibold capitalize rounded-lg body2 text-deepBlue bg-ghostWhite2"
           >
-            <Icon src="/assets/shared/icon-arrow-up.svg" className="w-3 h-3" />
-
-            <Text className="body3 text-bay">{sugg.upvotes}</Text>
+            {sugg.category}
           </Badge>
 
-          <Box className="flex items-center space-x-2">
-            <Icon src="/assets/shared/icon-comments.svg" className="w-3 h-3" />
-            <Text className="body3">{sugg.comments.length}</Text>
+          <Box className="flex items-center justify-between">
+            <Badge
+              // size="lg"
+              className="p-4 rounded-lg cursor-pointer bg-ghostWhite2 hover:bg-[#B5BCE0]"
+              component="button"
+              classNames={{
+                inner: "flex items-center space-x-2 ",
+              }}
+              onClick={() => console.log("upvote function")}
+            >
+              <Icon
+                src="/assets/shared/icon-arrow-up.svg"
+                className="w-3 h-3"
+              />
+
+              <Text className="body3 text-bay">{sugg.upvotes}</Text>
+            </Badge>
+
+            <Box className="flex items-center space-x-2">
+              <Icon
+                src="/assets/shared/icon-comments.svg"
+                className="w-3 h-3"
+              />
+              <Text className="body3">{sugg.comments.length}</Text>
+            </Box>
           </Box>
         </Box>
-      </Box>
-    ))}
-  </Box>
-);
+      ))}
+    </Box>
+  );
+};
 
 const Roadmap = () => {
   const router = useRouter();
