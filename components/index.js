@@ -10,3 +10,7 @@ export { default as SelectItem } from "./SelectItem";
 export { default as Icon } from "./Icon";
 export { default as PrimaryButton } from "./PrimaryButton";
 export { default as BackButton } from "./BackButton";
+
+export { default as CommentCard } from "./CommentCard";
+export { default as Replies } from "./Replies";
+export { default as Textarea } from "./CustomTextarea";
