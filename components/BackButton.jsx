@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@mantine/core";
 import { useRouter } from "next/router";
+import { ChevronLeft } from "tabler-icons-react";
 
 import { Icon } from "../components";
 
@@ -10,7 +11,11 @@ const BackButton = ({ light }) => {
   return (
     <Button
       leftIcon={
-        <Icon src="/assets/shared/icon-arrow-left.svg" className="w-3 h-3" />
+        light ? (
+          <ChevronLeft size={17} />
+        ) : (
+          <Icon src="/assets/shared/icon-arrow-left.svg" className="w-3 h-3" />
+        )
       }
       size="sm"
       variant="subtle"

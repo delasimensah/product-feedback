@@ -41,7 +41,7 @@ const CardWrapper = ({ data, color, title }) => {
       {data.map((sugg, idx) => (
         <Box
           key={idx}
-          className={`p-5 bg-white border-t-[6px] rounded-md ${borderColor} space-y-2`}
+          className={`p-5 bg-white border-t-[6px] ${borderColor} rounded-md  space-y-2`}
         >
           <Text className="flex items-center font-normal capitalize text-grey body3">
             <div
@@ -50,7 +50,7 @@ const CardWrapper = ({ data, color, title }) => {
             {title}
           </Text>
 
-          <Link href={`/feedback-details/${sugg.id}`}>
+          <Link href={`/`}>
             <a className="h4 text-bay hover:text-deepBlue">{sugg.title}</a>
           </Link>
 
