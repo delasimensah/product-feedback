@@ -45,7 +45,7 @@ const Details = ({ title, description, category }) => {
 
 const LinkWrapper = ({ children, className, id }) => {
   return (
-    <Link href={`/`}>
+    <Link href={`/feedback-details/${id}`}>
       <a className={`block ${className}`}>{children}</a>
     </Link>
   );
